@@ -1,7 +1,7 @@
 # coding: utf-8
 
 Pod::Spec.new do |s|
-  s.name         = "ActionSheet_Kfeagle"
+  s.name         = "ActionSheetTest"
   s.version      = "0.0.1"
   s.summary      = "Weex Action Sheet"
 
