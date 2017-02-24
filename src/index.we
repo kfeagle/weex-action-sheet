@@ -1,0 +1,81 @@
+<template>
+  <scroller>
+    <div title="action module" type="primary">
+      <text style="margin-bottom: 20px;">action value: {{value}}</text>
+      <text class="button" onclick="{{createAction}}">create action</text>
+    </div>
+
+  </scroller>
+</template>
+
+<style>
+  .input {
+    font-size: 60px;
+    height: 80px;
+    width: 400px;
+  }
+  .button {
+    font-size: 36px;
+    width: 400px;
+    color: #41B883;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-width: 2px;
+    border-style: solid;
+    margin-right: 20px;
+    border-color: rgb(162, 217, 192);
+    background-color: rgba(162, 217, 192, 0.2);
+    }
+</style>
+
+<script>
+  module.exports = {
+    data: {
+      value: '',
+      index: 0,
+      txtChange: ''
+    },
+    methods: {
+      createAction: function() {
+        var actionSheet = require('@weex-module/actionSheet');
+        var items = [];
+        for ( var i=0; i< 3; i++) {
+          var item = {};
+          if(i == 0)
+          {
+            item = {'type':0,'message':'确认'};
+          }
+          if(i == 1)
+          {
+            item = {'type':1,'message':'取消'};
+          }
+          if(i == 2)
+          {
+            item = {'type':2,'message':'删除'};
+          }
+          items.push(item);
+        }
+        var self = this;
+        actionSheet.create({
+          'items':items,
+          'index':self.index,
+          'title':'提示',
+          'message':'欢迎使用weex第三方市场'
+        },function (ret) {
+          var result = ret.result;
+          if(result == 'success')
+          {
+            self.value = ret.data.message;
+            self.index = ret.data.index;
+          }
+        });
+
+      },
+      onchange: function(event) {
+        this.txtChange = event.value;
+        console.log('onchange', event.value);
+      }
+    }
+  }
+</script>

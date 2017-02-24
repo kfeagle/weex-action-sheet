@@ -1,0 +1,10 @@
+{
+    "weex-action-sheet": {
+        "source": {
+            "type": "registry",
+            "id": "weex-action-sheet"
+        },
+        "is_top_level": true,
+        "variables": {}
+    }
+}
