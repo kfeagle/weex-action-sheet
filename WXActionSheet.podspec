@@ -28,11 +28,10 @@ Pod::Spec.new do |s|
   
 
   s.requires_arc = true
-  #s.frameworks = "WeexSDK"
-  #s.dependency "WeexSDK"
-  s.dependency "WeexSDK"
 
-  s.vendored_frameworks = 'Weexplugin.framework',
+  #s.dependency "WeexSDK"
+
+  # s.vendored_frameworks = 'Weexplugin.framework'
 
   # s.user_target_xcconfig  = { 'FRAMEWORK_SEARCH_PATHS' => "'$(PODS_ROOT)/Weexplugin'" }
 
