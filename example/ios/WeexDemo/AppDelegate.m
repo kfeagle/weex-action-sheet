@@ -7,12 +7,17 @@
  */
 
 #import "AppDelegate.h"
+#import "WXDemoViewController.h"
+#import "UIViewController+WXDemoNaviBar.h"
+#import "WXEventModule.h"
+#import "WXImgLoaderDefaultImpl.h"
 #import "DemoDefine.h"
+#import "WXScannerVC.h"
+#import "WXSyncTestModule.h"
+#import "UIView+UIThreadCheck.h"
 #import <WeexSDK/WeexSDK.h>
 #import <AVFoundation/AVFoundation.h>
 #import <ATSDK/ATManager.h>
-#import "WeexSDKManager.h"
-#import "WXScannerVC.h"
 
 @interface AppDelegate ()
 @end
@@ -27,14 +32,17 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    [WeexSDKManager setup];
+    [self initWeexSDK];
     
+    self.window.rootViewController = [[WXRootViewController alloc] initWithRootViewController:[self demoController]];
     [self.window makeKeyAndVisible];
     
-    // Override point for customization after application launch.
     [self startSplashScreen];
     
-    [self checkUpdate];
+#if DEBUG
+    // check if there are any UI changes on main thread.
+    [UIView wx_checkUIThread];
+#endif
     
     return YES;
 }
@@ -60,6 +68,70 @@
     extern void __gcov_flush(void);
     __gcov_flush();
 #endif
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    NSString *newUrlStr = url.absoluteString;
+    if([url.scheme isEqualToString:@"wxpage"]) {
+        newUrlStr = [newUrlStr stringByReplacingOccurrencesOfString:@"wxpage://" withString:@"http://"];
+    }
+    UIViewController * viewController = [self demoController];
+    ((WXDemoViewController*)viewController).url = [NSURL URLWithString:newUrlStr];
+    [(WXRootViewController*)self.window.rootViewController pushViewController:viewController animated:YES];
+    return YES;
+}
+
+#pragma mark weex
+- (void)initWeexSDK
+{
+    [WXAppConfiguration setAppGroup:@"AliApp"];
+    [WXAppConfiguration setAppName:@"WeexDemo"];
+    [WXAppConfiguration setExternalUserAgent:@"ExternalUA"];
+    
+    [WXSDKEngine initSDKEnvironment];
+    
+    [WXSDKEngine registerHandler:[WXImgLoaderDefaultImpl new] withProtocol:@protocol(WXImgLoaderProtocol)];
+    [WXSDKEngine registerHandler:[WXEventModule new] withProtocol:@protocol(WXEventModuleProtocol)];
+    
+    [WXSDKEngine registerComponent:@"select" withClass:NSClassFromString(@"WXSelectComponent")];
+    [WXSDKEngine registerModule:@"event" withClass:[WXEventModule class]];
+    [WXSDKEngine registerModule:@"syncTest" withClass:[WXSyncTestModule class]];
+    
+#if !(TARGET_IPHONE_SIMULATOR)
+    [self checkUpdate];
+#endif
+    
+#ifdef DEBUG
+    [self atAddPlugin];
+    [WXDebugTool setDebug:YES];
+    [WXLog setLogLevel:WXLogLevelLog];
+    
+    #ifndef UITEST
+        [[ATManager shareInstance] show];
+    #endif
+#else
+    [WXDebugTool setDebug:NO];
+    [WXLog setLogLevel:WXLogLevelError];
+#endif
+}
+
+- (UIViewController *)demoController
+{
+    UIViewController *demo = [[WXDemoViewController alloc] init];
+    
+#if DEBUG
+    //If you are debugging in device , please change the host to current IP of your computer.
+    ((WXDemoViewController *)demo).url = [NSURL URLWithString:HOME_URL];
+#else
+    ((WXDemoViewController *)demo).url = [NSURL URLWithString:BUNDLE_URL];
+#endif
+    
+#ifdef UITEST
+    ((WXDemoViewController *)demo).url = [NSURL URLWithString:UITEST_HOME_URL];
+#endif
+    
+    return demo;
 }
 
 #pragma mark 
@@ -175,6 +247,5 @@
     }
     [alertView dismissWithClickedButtonIndex:buttonIndex animated:YES];
 }
-
 
 @end
