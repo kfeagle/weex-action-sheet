@@ -37,7 +37,7 @@ actionSheet ，方便用户事件选择 以下为 actionSheet 相关的 API
   pod 'WeexActionSheet', '~>0.0.5'
 ```
 ## 平台
-ios：齐山(完成),h5:拈笑(完成),android:墨循(完成)
+ios：齐山(完成),h5:拈笑,android:墨循
 
 #### 示例
 
