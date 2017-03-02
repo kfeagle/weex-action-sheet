@@ -7,7 +7,7 @@
  */
 
 #import "WXActionSheetModule.h"
-#import "WeexPlugin.h"
+#import "WXWeexPluginDefine.h"
 #import <WeexSDK/WXConvert.h>
 
 @interface WXActionSheetModule()
@@ -20,7 +20,7 @@
 
 @implementation WXActionSheetModule
 @synthesize weexInstance;
-WX_PlUGIN_EXPORT_MODULE(@"actionSheet")
+WX_Plugin_EXPORT_MODULE(@"actionSheet")
 WX_EXPORT_METHOD(@selector(create:callback:))
 
 /**
