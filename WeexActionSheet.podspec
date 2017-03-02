@@ -26,7 +26,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/kfeagle/weex-action-sheet.git' }
   s.source_files  = "ios/Sources/**/*.{h,m,mm}"
   
-
   s.requires_arc = true
   s.dependency "WeexPlugin"
   s.dependency "WeexSDK"
