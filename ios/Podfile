@@ -5,7 +5,10 @@ platform :ios, '7.0'
 def common
 	pod 'WeexSDK'
 	pod 'WeexPlugin'
-	pod 'WeexActionSheet' :path=>'../../'
+end
+
+target 'WeexActionSheet' do
+    common
 end
 
 
