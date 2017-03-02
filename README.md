@@ -27,6 +27,7 @@ actionSheet ，方便用户事件选择 以下为 actionSheet 相关的 API
   - `data {Object}`：选择的结果。
      - `index {number}`：选中的项
      - `message`：选中的内容
+
 ## 如何集成
 
 ## iOS集成
