@@ -4,27 +4,27 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "9D1AA4B57FCDD021276E0291A445314877478FE4" : 9223372036854775807,
-    "B91521B429CF33FBFDDC846E517748F7367FE02D" : 9223372036854775807
+    "9D1AA4B57FCDD021276E0291A445314877478FE4" : 0,
+    "CFE920E8F7C96B4F89DF3EA58F1978F15A507833" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "13B41E17-D9C2-45C8-985B-383A698CFEEB",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "9D1AA4B57FCDD021276E0291A445314877478FE4" : "weexactionsheet\/",
-    "B91521B429CF33FBFDDC846E517748F7367FE02D" : "..\/.."
+    "9D1AA4B57FCDD021276E0291A445314877478FE4" : "weex-action-sheet\/",
+    "CFE920E8F7C96B4F89DF3EA58F1978F15A507833" : ""
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "WeexActionSheetDemo",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
-  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "example\/ios\/WeexActionSheetDemo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "examples\/ios\/WeexActionSheetDemo.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
     {
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kfeagle\/weexactionsheet.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kfeagle\/weex-action-sheet.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9D1AA4B57FCDD021276E0291A445314877478FE4"
     },
     {
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "gitlab.alibaba-inc.com:jerry.shb\/TPatch-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/weexteam\/weex-picker.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B91521B429CF33FBFDDC846E517748F7367FE02D"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CFE920E8F7C96B4F89DF3EA58F1978F15A507833"
     }
   ]
 }
