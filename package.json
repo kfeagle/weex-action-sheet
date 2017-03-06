@@ -14,7 +14,7 @@
     "type":"maven",
     "version":"0.4.1"
   },
-  "description": "",
+  "description": "action sheet extend",
   "license": "Apache-2.0",
 
   "keywords": [
