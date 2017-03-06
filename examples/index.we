@@ -1,9 +1,3 @@
 <template>
-  <div>hello</div>
+	<div><text>12312</text></div>
 </template>
-
-<script>
-
-
-</script>
-

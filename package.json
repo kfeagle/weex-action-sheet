@@ -5,7 +5,6 @@
   "subversion": {
 
   },
-  "os":["ios", "android"],
    "ios":{
       "type":"pod",
       "version":"0.4.2"
