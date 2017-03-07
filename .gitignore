@@ -1,5 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Node template
+ios/*.xcworkspace
+ios/Pods/
 # Logs
 logs
 *.log
