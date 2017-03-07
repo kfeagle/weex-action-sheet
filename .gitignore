@@ -3,6 +3,7 @@
 ios/*.xcworkspace
 ios/Pods/
 examples/ios/WeexActionSheetDemo.xcodeproj/xcshareddata
+examples/ios/WeexActionSheetDemo.xcodeproj/project.xcworkspace/
 examples/ios/WeexActionSheetDemo.xcodeproj/xcuserdata
 # Logs
 logs
