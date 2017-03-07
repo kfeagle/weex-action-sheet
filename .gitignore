@@ -2,6 +2,8 @@
 ### Node template
 ios/*.xcworkspace
 ios/Pods/
+ios/WeexActionSheetDemo.xcodeproj/xcshareddata
+ios/WeexActionSheetDemo.xcodeproj/xcuserdata
 # Logs
 logs
 *.log
